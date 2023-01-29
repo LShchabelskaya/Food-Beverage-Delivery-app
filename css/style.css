@@ -269,7 +269,7 @@ input[type=number] {
 /* --------------------------------- */
 .main {
     padding: 248px 0px 140px;
-    background: url("/img/Section\ 1_BG\ Shape.svg") 0 148px/cover no-repeat;
+    background: url("../img/Section\ 1_BG\ Shape.svg") 0 148px/cover no-repeat;
 }
 
 .main__container {
@@ -326,7 +326,7 @@ input[type=number] {
 
 /* --------------------------------- */
 .about {
-    background: url("/img/Section\ 2_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
+    background: url("../img/Section\ 2_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
     padding: 140px 0;
 }
 
@@ -335,7 +335,7 @@ input[type=number] {
 }
 
 .about__content {
-    background: url("/img/Section_2_content\ img.svg") 0 0/cover no-repeat;
+    background: url("../img/Section_2_content\ img.svg") 0 0/cover no-repeat;
     background-size: 100% 100%;
     padding-top: 148px;
     width: 50%;
@@ -422,7 +422,7 @@ input[type=number] {
 
 /* --------------------------------- */
 .food-menu {
-    background: url("/img/Section\ 4_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
+    background: url("../img/Section\ 4_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
     padding-top: 143px;
     padding-bottom: 140px;
 }
@@ -557,7 +557,6 @@ input[type=number] {
 
 .food-menu__btn-wrapper {
     display: flex;
-    /* ? ? ? ? flex? */
     justify-content: center;
 }
 
@@ -604,7 +603,7 @@ input[type=number] {
 
 /* --------------------------------- */
 .call {
-    background: url("/img/Section_6_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
+    background: url("../img/Section_6_BG\ Shape\ Content.svg") 0 0/cover no-repeat;
     padding: 137px 0px;
 }
 
@@ -613,7 +612,7 @@ input[type=number] {
 }
 
 .call__content {
-    background: url("/img/Section_6_content\ img.svg") 0 0/cover no-repeat;
+    background: url("../img/Section_6_content\ img.svg") 0 0/cover no-repeat;
     background-size: 100% 100%;
     padding-top: 100px;
     width: 50%;
@@ -664,7 +663,7 @@ input[type=number] {
 
 .order-now__content {
     padding: 212px 30px 0px 63px;
-    background: url('/img/Section_7_decoration.svg') bottom left/auto auto no-repeat, #35B8BE;
+    background: url('../img/Section_7_decoration.svg') bottom left/auto auto no-repeat, #35B8BE;
     width: 50%;
 }
 
@@ -700,7 +699,7 @@ input[type=number] {
 
 /* --------------------------------- */
 .footer {
-    background: url('/img/Footer_decoration.svg') bottom left/auto auto no-repeat, #F5FBFC;
+    background: url('../img/Footer_decoration.svg') bottom left/auto auto no-repeat, #F5FBFC;
 }
 
 .footer__container {

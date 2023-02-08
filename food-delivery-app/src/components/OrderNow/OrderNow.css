@@ -1,0 +1,120 @@
+.order-now {
+    padding: 44px 0px;
+}
+
+.order-now__container {
+    display: flex;
+    gap: 22px;
+    max-width: 1384px;
+}
+
+.order-now__photo {
+    width: 50%;
+    max-height: 640px;
+}
+
+.order-now__photo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.order-now__content {
+    padding: 212px 30px 0px 63px;
+    background: url('../../img/Section_7_decoration.svg') bottom left/auto auto no-repeat, #35B8BE;
+    width: 50%;
+}
+
+.order-now__title {
+    font-size: 50px;
+    line-height: 60.5px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    margin-bottom: 52px;
+}
+
+.order-now__title__first {
+    font-size: 51px;
+    color: #1B9097;
+}
+
+.order-now__button {
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 18px 35px 21px;
+    font-size: 17px;
+    line-height: 20px;
+    color: #35B8BE;
+    margin-bottom: 30px;
+    transition: all 0.6s ease 0s;
+}
+
+.order-now__button:hover {
+    background-color: #1B9097;
+    color: #FFFFFF;
+}
+
+/* ------------------- */
+/* ------------------- */
+
+@media (max-width: 1230px) {
+    .order-now__content {
+        padding: 145px 30px;
+    }
+}
+
+/* ------------------- */
+
+@media (max-width: 1023px) {
+    .order-now__title,
+    .order-now__title__first,
+    .order-now__title__second,
+    .order-now__title__third {
+        font-size: 40px;
+        max-width: 100%;
+    }
+
+    .order-now__content {
+        padding: 90px 30px;
+    }
+}
+
+/* ------------------- */
+
+@media(max-width: 767px) {
+    .order-now__button {
+        padding: 15px 28px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .order-now__title,
+    .order-now__title__first {
+        font-size: 36px;
+    }
+
+    .order-now__container {
+        flex-direction: column;
+    }
+
+    .order-now__content,
+    .order-now__photo {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .order-now__content {
+        padding: 50px 30px;
+    }
+}
+
+/* ------------------- */
+
+@media(max-width: 400px) {
+    .order-now__title,
+    .order-now__title__first {
+        font-size: 30px;
+        line-height: 50px;
+    }
+}

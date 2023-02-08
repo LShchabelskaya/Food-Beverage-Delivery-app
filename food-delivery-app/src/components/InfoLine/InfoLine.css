@@ -1,0 +1,42 @@
+.information-line {
+    background-color: #35B8BE;
+    position: fixed;
+    width: 100%;
+    z-index: 15;
+}
+
+.information-line__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.information-line__text {
+    opacity: 0.8;
+    padding-right: 19px;
+}
+
+.information-line__link:hover {
+    text-decoration: underline;
+}
+
+/* ------------------- */
+/* ------------------- */
+
+@media(max-width: 767px) {
+    .information-line {
+        position: relative;
+    }
+}
+
+/* ------------------- */
+
+@media(max-width: 490px) {
+    .information-line {
+        margin-bottom: 70px;
+    }
+}

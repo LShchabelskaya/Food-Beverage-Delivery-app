@@ -1,0 +1,111 @@
+.food-menu__card {
+    display: flex;
+    align-items: center;
+    padding: 26px;
+    width: 48.2%;
+    gap: 28px;
+    border: 1px solid rgba(53, 184, 190, 0.15);
+    border-radius: 6px;
+}
+
+.fm__card__header {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 9px 0px 18px;
+    line-height: 20px;
+}
+
+.fm__header__title {
+    font-size: 18px;
+    letter-spacing: 0.6px;
+    color: #08090A;
+}
+
+.fm__header__price {
+    color: #35B8BE;
+    font-size: 15px;
+    letter-spacing: 0.55px;
+}
+
+.fm__card__text {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    margin-bottom: 9px;
+}
+
+.fm__card__order {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.fm__order__counter,
+.fm__order__button {
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0.36px;
+}
+
+.fm__order__counter {
+    display: block;
+    height: 45px;
+    width: 60px;
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+    padding: 7px;
+    text-align: center;
+}
+
+.fm__order__button {
+    background-color: #35B8BE;
+    border-radius: 6px;
+    padding: 6px 21px 10px 13px;
+    color: #000000;
+    transition: all 0.6s ease 0s;
+}
+
+.fm__order__button:hover {
+    background-color: #45e9f1;
+}
+
+/* ------------------- */
+/* ------------------- */
+
+@media (max-width: 1023px) {
+    .fm__card__header,
+    .fm__card__order {
+        flex-wrap: wrap;
+    }
+
+    .fm__card__header {
+        gap: 7px;
+    }
+
+    .fm__header__title {
+        text-align: left;
+    }
+
+    .fm__order__counter,
+    .fm__order__button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ------------------- */
+
+@media(max-width: 767px) {
+    .food-menu__card {
+        width: 100%;
+    }
+}
+
+/* ------------------- */
+
+@media(max-width: 400px) {
+    .food-menu__card {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,7 @@
+.food-menu__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 18px;
+    margin-bottom: 64px;
+}

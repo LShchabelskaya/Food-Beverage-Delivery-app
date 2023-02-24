@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@keyframes vibrate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-3deg);
+    }
+
+    20% {
+        transform: rotate(3deg);
+    }
+
+    30% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    70% {
+        transform: rotate(-3deg);
+    }
+
+    80% {
+        transform: rotate(3deg);
+    }
+
+    90% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    min-width: 320px;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #546285;
+    background-color: #FFFFFF;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    background-color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+}
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------- */
+.page {
+    flex: 1 1 auto;
+}
+
+/* --------------------------------- */
+[class*='__container'] {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+[class*='__logo'] {
+    display: block;
+}
+
+/* --------------------------------- */
+.title {
+    color: #35B8BE;
+    letter-spacing: 1.65px;
+}
+
+/* --------------------------------- */
+.navlink {
+    background-color: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+}
+
+/* --------------------------------- */
+/* --------------------------------- */
+
+@media (max-width: 1023px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* --------------------------------- */
+
+@media(max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+}

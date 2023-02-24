@@ -11,7 +11,7 @@ class FoodMenu extends Component {
     };
 
     render() {
-        const { updateAppState } = this.props;
+        const { updateAppState, navigateToMenu } = this.props;
         return (
             <section className='food-menu'>
                 <div className='food-menu__container'>
@@ -26,7 +26,7 @@ class FoodMenu extends Component {
                     </div>
                     <CardList cards={cards} updateAppState={updateAppState} />
                     <div className='food-menu__btn-wrapper'>
-                        <CommonBtn text='See Full Menu' />
+                        <CommonBtn text='See Full Menu' navigateToMenu={navigateToMenu} />
                     </div>
                 </div>
             </section>

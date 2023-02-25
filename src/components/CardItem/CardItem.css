@@ -8,6 +8,11 @@
     border-radius: 6px;
 }
 
+.fm__picture {
+    width: 120px;
+    height: 120px;
+}
+
 .fm__card__header {
     display: flex;
     text-align: center;
@@ -69,6 +74,24 @@
 .fm__order__button:hover {
     background-color: #45e9f1;
 }
+
+.tag {
+    display: inline-block;
+    position: relative;
+    border: 1px solid grey;
+    padding: 5px 20px 5px 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #35B8BE;
+}
+
+.tag i {
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+} 
 
 /* ------------------- */
 /* ------------------- */

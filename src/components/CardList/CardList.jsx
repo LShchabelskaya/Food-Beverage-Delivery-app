@@ -4,18 +4,21 @@ import CardItem from '../CardItem/CardItem';
 
 class CardList extends Component {
     render() {
-        const { cards, updateAppState } = this.props;
+        const { cards, updateAppState, deleteTag } = this.props;
         return (
             <div className='food-menu__list'>
                 {cards.map((card) => (
-                    <CardItem 
-                        key={ card.id } 
-                        title={ card.title } 
-                        price={ card.price } 
-                        text={ card.text }
-                        src={ card.src }
-                        alt={ card.alt }
-                        updateAppState={ updateAppState }
+                    <CardItem
+                        key={card.id}
+                        title={card.title}
+                        price={card.price}
+                        text={card.text}
+                        src={card.src}
+                        alt={card.alt}
+                        tags={card.tags}
+                        id={card.id}
+                        deleteTag={deleteTag}
+                        updateAppState={updateAppState}
                     />
                 ))}
             </div>

@@ -19,7 +19,7 @@ class CardItem extends Component {
     };
 
     addToCart = () => {
-        const { cardInputValue } = this.state;
+        const { cardInputValue } = this.state;                            // <----- doesn't work on the MenuPage
         const { updateAppState } = this.props;
         if (+cardInputValue > 0 && Number.isInteger(+cardInputValue)) {
             updateAppState(cardInputValue);                               // <----- temporary solution until we use Context
@@ -31,26 +31,37 @@ class CardItem extends Component {
     };
 
     render() {
-        const { title, price, text, src, alt } = this.props;
+        const { title, price, text, src, alt, tags, deleteTag, id } = this.props;
+        const tagsList = Object.keys(tags);
         const { cardInputValue } = this.state;
         return (
             <div className='food-menu__card'>
-                <img src={ src } alt={ alt } />
+                <img className='fm__picture' src={src} alt={alt} />
                 <div>
                     <div className='fm__card__header'>
-                        <h3 className='fm__header__title'>{ title }</h3>
-                        <div className='fm__header__price'>{ price }</div>
+                        <h3 className='fm__header__title'>{title}</h3>
+                        <div className='fm__header__price'>$ {price} USD</div>
                     </div>
-                    <p className='fm__card__text'>{ text }</p>
+                    <p className='fm__card__text'>{text}</p>
+                    <div>
+                        {tagsList.map((item) => {
+                            return (
+                                <span key={item} className='tag'>
+                                    {item + tags[item]}
+                                    <i onClick={() => deleteTag(id, item)}>x</i>
+                                </span>
+                            )
+                        })}
+                    </div>
                     <div className='fm__card__order'>
                         <input
                             type='number'
                             className='fm__order__counter'
                             name='input'
-                            value={ cardInputValue }
-                            onChange={ this.cardInputHandler }
+                            value={cardInputValue}
+                            onChange={this.cardInputHandler}
                         />
-                        <button className='fm__order__button' type='button' onClick={ this.addToCart }>Add to cart</button>
+                        <button className='fm__order__button' type='button' onClick={this.addToCart}>Add to cart</button>
                     </div>
                 </div>
             </div>

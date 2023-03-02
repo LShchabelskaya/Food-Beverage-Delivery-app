@@ -29,14 +29,17 @@ class MenuPage extends Component {
                 size: 0
             }
         };
-        const { cardsList } = this.state;
-        this.setState({ cardsList: [newCard, ...cardsList] });
+        this.setState(({ cardsList }) => ({ 
+            cardsList: [newCard, ...cardsList] 
+        }));
     };
 
     deleteCard = () => {
         const { cardsList } = this.state;
         const newCardsList = cardsList.filter((_, idx) => idx !== 0);
-        this.setState({ cardsList: newCardsList });
+        this.setState(() => ({ 
+            cardsList: newCardsList 
+        }));
     };
 
     sortByFun = () => {
@@ -44,7 +47,9 @@ class MenuPage extends Component {
         const newCardsList = [...cardsList].sort((card, card2) => {
             return +card.price - +card2.price;
         });
-        this.setState({ cardsList: newCardsList });
+        this.setState(() => ({ 
+            cardsList: newCardsList 
+        }));
     };
 
     // insertFun = (arr) => {
@@ -68,15 +73,18 @@ class MenuPage extends Component {
     };
 
     deleteTag = (id, tag) => {
-        const {cardsList} = this.state;
+        const { cardsList } = this.state;
         const updatedCard = cardsList.find(item => item.id === id);
         delete updatedCard.tags[tag];                                   // <----- doesn't work on the MainPage
-        this.setState({...cardsList, updatedCard});
+        this.setState(() => ({ 
+            cardsList:  [...cardsList] 
+        }));
     };
 
     render() {
         const { navigateToMain } = this.props;
         const { cardsList } = this.state;
+        console.log('dta', this.state);
         return (
             <div className='menu-page__wrapper'>
                 <div className='food-menu__options'>

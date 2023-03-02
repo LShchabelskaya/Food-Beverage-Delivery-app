@@ -13,9 +13,9 @@ class CardItem extends Component {
 
 
     cardInputHandler = (e) => {
-        this.setState({
+        this.setState(() => ({
             cardInputValue: e.target.value,
-        });
+        }));
     };
 
     addToCart = () => {
@@ -24,9 +24,9 @@ class CardItem extends Component {
         if (+cardInputValue > 0 && Number.isInteger(+cardInputValue)) {
             updateAppState(cardInputValue);                               // <----- temporary solution until we use Context
         } else {
-            this.setState({
+            this.setState(() => ({
                 cardInputValue: 1,
-            });
+            }));
         };
     };
 

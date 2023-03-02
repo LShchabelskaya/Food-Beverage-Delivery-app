@@ -17,16 +17,16 @@ class Header extends Component {
 
     menuIconClickHandler = () => {
         if (!this.state.isMenuIconActive && !this.state.isMenuBodyActive) {
-            this.setState({
+            this.setState(() => ({
                 isMenuIconActive: true,
                 isMenuBodyActive: true
-            });
+            }));
             document.body.classList.add('_lock');
         } else {
-            this.setState({
+            this.setState(() => ({
                 isMenuIconActive: false,
                 isMenuBodyActive: false
-            });
+            }));
             document.body.classList.remove('_lock');
         };
     };

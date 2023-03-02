@@ -21,8 +21,9 @@ class MainPage extends Component {
     };
 
     updateAppState = (value) => {
-        const { cartCounterValue } = this.state;
-        this.setState({ cartCounterValue: cartCounterValue + +value }); // <--- temporary decision until we use Context 
+        this.setState(({ cartCounterValue }) => ({ 
+            cartCounterValue: cartCounterValue + +value // <--- temporary decision until we use Context 
+        })); 
     };
 
     render() {

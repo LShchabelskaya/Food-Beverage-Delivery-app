@@ -4,8 +4,8 @@ import './CommonBtn.css';
 
 class CommonBtn extends Component {
     render() {
-        const { text, navigateToMenu, navigateToMain } = this.props;
-        return <button className='common__button' type='button' onClick={text === 'See Full Menu' ? navigateToMenu : navigateToMain}>{ text }</button>
+        const { text, onClick } = this.props;
+        return <button className='common__button' type='button' onClick={onClick}>{text}</button>
     };
 };
 

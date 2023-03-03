@@ -27,7 +27,7 @@ class FoodMenu extends Component {
                     </div>
                     <CardList cards={cards} updateMainState={updateMainState} />
                     <div className='food-menu__btn-wrapper'>
-                        <CommonBtn text='See Full Menu' navigateToMenu={navigateToMenu} />
+                        <CommonBtn text='See Full Menu' onClick={navigateToMenu} />
                     </div>
                 </div>
             </section>

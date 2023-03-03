@@ -96,7 +96,7 @@ class MenuPage extends Component {
                 </div>
                 <CardList cards={cardsList} deleteTag={this.deleteTag} />
                 <div className='food-menu__btn-wrapper'>
-                    <CommonBtn text='Back to main page' navigateToMain={navigateToMain} />
+                    <CommonBtn text='Back to main page' onClick={navigateToMain} />
                 </div>
             </div>
         );

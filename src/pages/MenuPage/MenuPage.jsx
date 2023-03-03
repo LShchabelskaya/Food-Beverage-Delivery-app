@@ -52,24 +52,25 @@ class MenuPage extends Component {
         }));
     };
 
-    // insertFun = (arr) => {
-    //     for (let i = 1; i < arr.length; i++) {
-    //         const current = +arr[i].price;
-    //         let j = i;
-    //         while (j > 0 && (+arr[j - 1].price) > current) {    // <----- in progress, needs some improvements ;)
-    //             arr[j].price = arr[j - 1].price;
-    //             j--;
-    //         };
-    //         arr[j].price = current;
-    //     };
-    //     return arr;
-    // };
+    insertFun = (arr) => {
+        for (let i = 1; i < arr.length; i++) {
+            const current = +arr[i].price;
+            let j = i;
+            while (j > 0 && (parseFloat(arr[j - 1].price)) > current) {
+                arr[j].price = arr[j - 1].price;
+                j--;
+            };
+            arr[j].price = `${current}`;
+        };
+        return arr;
+    };
 
     sortByInsert = () => {
-        // const { cardsList } = this.state;
-        // const newCardsList = this.insertFun([...cardsList]);    // <----- in progress, needs some improvements ;)
-        // console.log('new array', newCardsList);
-        // this.setState({ cardsList: newCardsList });
+        const { cardsList } = this.state;
+        const newCardsList = this.insertFun([...cardsList]);
+        this.setState(() => ({ 
+            cardsList: newCardsList 
+        }));
     };
 
     deleteTag = (id, tag) => {
@@ -84,7 +85,6 @@ class MenuPage extends Component {
     render() {
         const { navigateToMain } = this.props;
         const { cardsList } = this.state;
-        console.log('dta', this.state);
         return (
             <div className='menu-page__wrapper'>
                 <div className='food-menu__options'>

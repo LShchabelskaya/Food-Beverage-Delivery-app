@@ -4,7 +4,7 @@ import CardItem from '../CardItem/CardItem';
 
 class CardList extends Component {
     render() {
-        const { cards, updateAppState, deleteTag } = this.props;
+        const { cards, updateMainState, deleteTag } = this.props;
         return (
             <div className='food-menu__list'>
                 {cards.map((card) => (
@@ -18,7 +18,7 @@ class CardList extends Component {
                         tags={card.tags}
                         id={card.id}
                         deleteTag={deleteTag}
-                        updateAppState={updateAppState}
+                        updateMainState={updateMainState}
                     />
                 ))}
             </div>

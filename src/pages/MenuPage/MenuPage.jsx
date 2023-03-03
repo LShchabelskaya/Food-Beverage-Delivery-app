@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './MenuPage.css';
 import CardList from '../../components/CardList/CardList';
 import CommonBtn from '../../components/CommonBtn/CommonBtn';
+import FoodMenuBtn from '../../components/FoodMenuBtn/FoodMenuBtn';
 import { cards } from '../../constants';
 import { v4 as uuidv4 } from 'uuid';
 import test_photo from '../../img/food-menu_cards/test_photo.png';
@@ -88,10 +89,10 @@ class MenuPage extends Component {
         return (
             <div className='menu-page__wrapper'>
                 <div className='food-menu__options'>
-                    <button type='button' className='food-menu__button' onClick={this.sortByFun}>Sort by function</button>
-                    <button type='button' className='food-menu__button' onClick={this.sortByInsert}>Insertion sort</button>
-                    <button type='button' className='food-menu__button' onClick={this.addCard}>Add</button>
-                    <button type='button' className='food-menu__button' onClick={this.deleteCard}>Delete</button>
+                    <FoodMenuBtn text={'Sort by function'} onClick={this.sortByFun} />
+                    <FoodMenuBtn text={'Insertion sort'} onClick={this.sortByInsert} />
+                    <FoodMenuBtn text={'Add'} onClick={this.addCard} />
+                    <FoodMenuBtn text={'Delete'} onClick={this.deleteCard} />
                 </div>
                 <CardList cards={cardsList} deleteTag={this.deleteTag} />
                 <div className='food-menu__btn-wrapper'>

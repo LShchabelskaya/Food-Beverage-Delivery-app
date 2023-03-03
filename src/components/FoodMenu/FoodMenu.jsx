@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './FoodMenu.css';
 import CommonBtn from '../CommonBtn/CommonBtn';
 import CardList from '../CardList/CardList';
+import FoodMenuBtn from '../FoodMenuBtn/FoodMenuBtn';
 import { cards } from '../../constants';
 
 class FoodMenu extends Component {
@@ -11,7 +12,7 @@ class FoodMenu extends Component {
     };
 
     render() {
-        const { updateAppState, navigateToMenu } = this.props;
+        const { updateMainState, navigateToMenu } = this.props;
         return (
             <section className='food-menu'>
                 <div className='food-menu__container'>
@@ -20,11 +21,11 @@ class FoodMenu extends Component {
                         className='navlink'>phone</button> our store to place a
                         pickup order. Fast and fresh food.</p>
                     <div className='food-menu__options'>
-                        <button type='button' className='food-menu__button'>Burgers</button>
-                        <button type='button' className='food-menu__button'>Sides</button>
-                        <button type='button' className='food-menu__button'>Drinks</button>
+                        <FoodMenuBtn text={'Burgers'} />
+                        <FoodMenuBtn text={'Sides'} />
+                        <FoodMenuBtn text={'Drinks'} />
                     </div>
-                    <CardList cards={cards} updateAppState={updateAppState} />
+                    <CardList cards={cards} updateMainState={updateMainState} />
                     <div className='food-menu__btn-wrapper'>
                         <CommonBtn text='See Full Menu' navigateToMenu={navigateToMenu} />
                     </div>

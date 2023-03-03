@@ -1,0 +1,22 @@
+.footer__media__wrapper {
+    min-height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(126, 130, 143, 0.3);
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.footer__media__wrapper:hover {
+    background-color: #6cebef;
+    transform: scale3d(1.5, 1.5, 1.5);
+}
+
+.footer__media__wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}

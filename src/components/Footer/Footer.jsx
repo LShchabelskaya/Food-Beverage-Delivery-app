@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import './Footer.css';
 import logo from '../../img/Logo.svg';
+import FooterLink from '../FooterLink/FooterLink';
+import FooterMediaItem from '../FooterMediaItem/FooterMediaItem';
 import instagram from '../../img/media/instagram.svg';
 import twitter from '../../img/media/twitter.svg';
 import youtube from '../../img/media/youtube.svg';
-
 
 class Footer extends Component {
     render() {
@@ -21,43 +22,25 @@ class Footer extends Component {
                             <div className='footer__navigation__column'>
                                 <h3>Company</h3>
                                 <ul className='footer__list'>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Home</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Order</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>FAQ</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Contact</button>
-                                    </li>
+                                    <FooterLink text={'Home'} />
+                                    <FooterLink text={'Order'} />
+                                    <FooterLink text={'FAQ'} />
+                                    <FooterLink text={'Contact'} />
                                 </ul>
                             </div>
                             <div className='footer__navigation__column'>
                                 <h3>Template</h3>
                                 <ul className='footer__list'>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Style Guide</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Changelog</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Licence</button>
-                                    </li>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>Webflow University</button>
-                                    </li>
+                                    <FooterLink text={'Style Guide'} />
+                                    <FooterLink text={'Changelog'} />
+                                    <FooterLink text={'Licence'} />
+                                    <FooterLink text={'Webflow University'} />
                                 </ul>
                             </div>
                             <div className='footer__navigation__column'>
                                 <h3>Flowbase</h3>
                                 <ul className='footer__list'>
-                                    <li className='footer__item'>
-                                        <button type='button' className='footer__link navlink'>More Cloneables</button>
-                                    </li>
+                                    <FooterLink text={'More Cloneables'} />
                                 </ul>
                             </div>
                         </div>
@@ -70,15 +53,9 @@ class Footer extends Component {
                                     target='_blank' rel="noreferrer">initial design</a></p>
                         </div>
                         <div className='footer__media'>
-                            <div className='footer__media__wrapper'>
-                                <button type='button'><img src={instagram} alt='Instagram icon' /></button>
-                            </div>
-                            <div className='footer__media__wrapper'>
-                                <button type='button'><img src={twitter} alt='Twitter icon' /></button>
-                            </div>
-                            <div className='footer__media__wrapper'>
-                                <button type='button'><img src={youtube} alt='Youtube icon' /></button>
-                            </div>
+                            <FooterMediaItem src={instagram} alt={'Instagram icon'} />
+                            <FooterMediaItem src={twitter} alt={'Twitter icon'} />
+                            <FooterMediaItem src={youtube} alt={'Youtube icon'} />
                         </div>
                     </div>
                 </div>

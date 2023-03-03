@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './Header.css';
 import logo from '../../img/Logo.svg';
 import basket from '../../img/Basket.svg';
+import HeaderLink from '../HeaderLink/HeaderLink';
 
 
 class Header extends Component {
@@ -45,11 +46,11 @@ class Header extends Component {
                         </div>
                         <nav className={isMenuBodyActive ? 'menu__body _active' : 'menu__body'}>
                             <ul className='menu__list'>
-                                <li><button type='button' data-goto='.main' className='menu__link navlink'>Home</button></li>
-                                <li><button type='button' data-goto='.order-now' className='menu__link navlink'>Order</button></li>
-                                <li><button type='button' data-goto='.about' className='menu__link navlink'>Company</button></li>
-                                <li><button type='button' data-goto='.faq' className='menu__link navlink'>FAQ</button></li>
-                                <li><button type='button' data-goto='.call' className='menu__link navlink'>Contact</button></li>
+                                <HeaderLink goto={'.main'} text={'Home'} />
+                                <HeaderLink goto={'.order-now'} text={'Order'} />
+                                <HeaderLink goto={'.about'} text={'Company'} />
+                                <HeaderLink goto={'.faq'} text={'FAQ'} />
+                                <HeaderLink goto={'.call'} text={'Contact'} />
                             </ul>
                         </nav>
                         <button type='button' className='menu__basket'>

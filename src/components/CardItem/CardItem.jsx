@@ -20,9 +20,9 @@ class CardItem extends Component {
 
     addToCart = () => {
         const { cardInputValue } = this.state;                            // <----- doesn't work on the MenuPage
-        const { updateAppState } = this.props;
+        const { updateMainState } = this.props;
         if (+cardInputValue > 0 && Number.isInteger(+cardInputValue)) {
-            updateAppState(cardInputValue);                               // <----- temporary solution until we use Context
+            updateMainState(cardInputValue);                               // <----- temporary solution until we use Context
         } else {
             this.setState(() => ({
                 cardInputValue: 1,

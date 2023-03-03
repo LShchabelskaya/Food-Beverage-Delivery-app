@@ -1,0 +1,27 @@
+.food-menu__button {
+    border: 1px solid rgba(97, 114, 131, 0.2);
+    border-radius: 6px;
+    padding: 15px 45px;
+    color: #222222;
+    font-size: 15px;
+    line-height: 20px;
+    transition: all 0.6s ease 0s;
+    background-color: inherit;
+}
+
+.food-menu__button:hover {
+    background-color: #35B8BE;
+    color: #FFFFFF;
+    border: none;
+}
+
+/* ------------------- */
+/* ------------------- */
+
+@media(max-width: 767px) {
+    .food-menu__button {
+        padding: 15px 28px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+}

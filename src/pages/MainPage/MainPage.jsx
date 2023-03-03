@@ -20,7 +20,7 @@ class MainPage extends Component {
         };
     };
 
-    updateAppState = (value) => {
+    updateMainState = (value) => {
         this.setState(({ cartCounterValue }) => ({ 
             cartCounterValue: cartCounterValue + +value // <--- temporary decision until we use Context 
         })); 
@@ -37,7 +37,7 @@ class MainPage extends Component {
                     <Main />
                     <About />
                     <How />
-                    <FoodMenu updateAppState={this.updateAppState} navigateToMenu={navigateToMenu} />
+                    <FoodMenu updateMainState={this.updateMainState} navigateToMenu={navigateToMenu} />
                     <Faq />
                     <Call />
                     <OrderNow />

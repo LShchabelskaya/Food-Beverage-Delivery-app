@@ -1,11 +1,8 @@
 import { Component } from 'react';
-import './MenuPage.css';
-import CardList from '../../components/CardList/CardList';
-import CommonBtn from '../../components/CommonBtn/CommonBtn';
-import FoodMenuBtn from '../../components/FoodMenuBtn/FoodMenuBtn';
 import { cards } from '../../constants';
 import { v4 as uuidv4 } from 'uuid';
 import test_photo from '../../img/food-menu_cards/test_photo.png';
+import MenuPageView from './MenuPageView';
 
 class MenuPage extends Component {
 
@@ -87,18 +84,15 @@ class MenuPage extends Component {
         const { navigateToMain } = this.props;
         const { cardsList } = this.state;
         return (
-            <div className='menu-page__wrapper'>
-                <div className='food-menu__options'>
-                    <FoodMenuBtn text={'Sort by function'} onClick={this.sortByFun} />
-                    <FoodMenuBtn text={'Insertion sort'} onClick={this.sortByInsert} />
-                    <FoodMenuBtn text={'Add'} onClick={this.addCard} />
-                    <FoodMenuBtn text={'Delete'} onClick={this.deleteCard} />
-                </div>
-                <CardList cards={cardsList} deleteTag={this.deleteTag} />
-                <div className='food-menu__btn-wrapper'>
-                    <CommonBtn text='Back to main page' onClick={navigateToMain} />
-                </div>
-            </div>
+            <MenuPageView 
+                navigateToMain={navigateToMain}
+                cardsList={cardsList}
+                sortByFun={this.sortByFun}
+                sortByInsert={this.sortByInsert}
+                addCard={this.addCard}
+                deleteCard={this.deleteCard}
+                deleteTag={this.deleteTag}
+            />
         );
     };
 };

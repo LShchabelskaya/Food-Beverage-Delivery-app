@@ -7,16 +7,16 @@ import HeaderLink from '../HeaderLink/HeaderLink';
 
 class HeaderView extends Component {
     render() {
-        const { isMenuIconActive, isMenuBodyActive, cartCounterValue, menuIconClickHandler } = this.props;
+        const { isMenuOpen, cartCounterValue, menuIconClickHandler, isStickyHeader } = this.props;
         return (
-            <header className='header'>
+            <header className={isStickyHeader ? 'header sticky' : 'header'}>
                 <div className='header__container'>
                     <button type='button' className='header__logo navlink'><img data-goto='.main' src={logo} alt='Logo' /></button>
                     <div className='header__content'>
-                        <div className={isMenuIconActive ? 'menu__icon _active' : 'menu__icon'} onClick={menuIconClickHandler}>
+                        <div className={isMenuOpen ? 'menu__icon _active' : 'menu__icon'} onClick={menuIconClickHandler}>
                             <span></span>
                         </div>
-                        <nav className={isMenuBodyActive ? 'menu__body _active' : 'menu__body'}>
+                        <nav className={isMenuOpen ? 'menu__body _active' : 'menu__body'}>
                             <ul className='menu__list'>
                                 <HeaderLink goto={'.main'} text={'Home'} />
                                 <HeaderLink goto={'.order-now'} text={'Order'} />

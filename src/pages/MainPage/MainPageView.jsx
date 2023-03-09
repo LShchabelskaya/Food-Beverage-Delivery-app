@@ -13,11 +13,11 @@ import Footer from '../../components/Footer/Footer';
 
 class MainPageView extends Component {
     render() {
-        const { cartCounterValue, navigateToMenu, updateMainState } = this.props;
+        const { cartCounterValue, navigateToMenu, updateMainState, infoLineRef, isStickyHeader } = this.props;
         return (
             <div className='wrapper'>
-                <InfoLine />
-                <Header cartCounterValue={cartCounterValue} />
+                <InfoLine infoLineRef={infoLineRef} />
+                <Header cartCounterValue={cartCounterValue} isStickyHeader={isStickyHeader} />
                 <main className='page'>
                     <Main />
                     <About />

@@ -7,36 +7,33 @@ class Header extends Component {
 
         this.state = {
             // cartCounter: 0,      // <--- temporary was moved to App until we use Context
-            isMenuIconActive: false,
-            isMenuBodyActive: false,
+            isMenuOpen: false,
         };
     };
 
     menuIconClickHandler = () => {
-        if (!this.state.isMenuIconActive && !this.state.isMenuBodyActive) {
-            this.setState(() => ({
-                isMenuIconActive: true,
-                isMenuBodyActive: true
-            }));
+        this.setState(({ isMenuOpen }) => ({
+            isMenuOpen: !isMenuOpen
+        }));
+    };
+
+    componentDidUpdate = () => {
+        if(this.state.isMenuOpen) {
             document.body.classList.add('_lock');
         } else {
-            this.setState(() => ({
-                isMenuIconActive: false,
-                isMenuBodyActive: false
-            }));
             document.body.classList.remove('_lock');
         };
     };
 
     render() {
-        const { isMenuIconActive, isMenuBodyActive } = this.state;
-        const { cartCounterValue } = this.props;
+        const { isMenuOpen } = this.state;
+        const { cartCounterValue, isStickyHeader } = this.props;
         return (
-            <HeaderView 
-                isMenuIconActive={isMenuIconActive}
-                isMenuBodyActive={isMenuBodyActive}
+            <HeaderView
+                isMenuOpen={isMenuOpen}
                 cartCounterValue={cartCounterValue}
                 menuIconClickHandler={this.menuIconClickHandler}
+                isStickyHeader={isStickyHeader}
             />
         );
     };

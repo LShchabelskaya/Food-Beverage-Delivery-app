@@ -7,10 +7,9 @@ class CardItem extends Component {
         super(props);
 
         this.state = {
-            cardInputValue: 1,
+            cardInputValue: 1
         };
     };
-
 
     cardInputHandler = (e) => {
         this.setState(() => ({
@@ -31,7 +30,7 @@ class CardItem extends Component {
     };
 
     render() {
-        const { title, price, text, src, alt, tags, deleteTag, id } = this.props;
+        const { title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard } = this.props;
         const { cardInputValue } = this.state;
         return (
             <CardItemView
@@ -46,6 +45,8 @@ class CardItem extends Component {
                 cardInputValue={cardInputValue}
                 cardInputHandler={this.cardInputHandler}
                 addToCart={this.addToCart}
+                makeActive={makeActive}
+                activeCard={activeCard}
             />
         );
     };

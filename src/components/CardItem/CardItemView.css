@@ -1,3 +1,8 @@
+@keyframes borderAnim{
+    from{border:0 solid rgba(53, 184, 190, 0.15)}
+    to{border: 3px solid rgba(2, 185, 195, 0.3)}
+}
+
 .food-menu__card {
     display: flex;
     align-items: center;
@@ -6,6 +11,10 @@
     gap: 28px;
     border: 1px solid rgba(53, 184, 190, 0.15);
     border-radius: 6px;
+}
+
+.fm__card__active {
+    animation: borderAnim 1s alternate infinite ease;
 }
 
 .fm__picture {

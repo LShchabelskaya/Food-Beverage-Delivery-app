@@ -1,27 +1,35 @@
 import { Component } from 'react';
-import './CardList.css';
-import CardItem from '../CardItem/CardItem';
+import CardListView from './CardListView';
 
 class CardList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeCard: ''
+        };
+    };
+
+    makeActive = (id) => {
+        const { activeCard } = this.state;
+        if (activeCard !== id) {
+            this.setState(() => ({activeCard: id}));
+        } else {
+            this.setState(() => ({activeCard: ''}));
+        };
+    };
+
     render() {
         const { cards, updateMainState, deleteTag } = this.props;
+        const { activeCard } = this.state;
         return (
-            <div className='food-menu__list'>
-                {cards.map((card) => (
-                    <CardItem
-                        key={card.id}
-                        title={card.title}
-                        price={card.price}
-                        text={card.text}
-                        src={card.src}
-                        alt={card.alt}
-                        tags={card.tags}
-                        id={card.id}
-                        deleteTag={deleteTag}
-                        updateMainState={updateMainState}
-                    />
-                ))}
-            </div>
+            <CardListView 
+                cards={cards}
+                deleteTag={deleteTag}
+                updateMainState={updateMainState}
+                makeActive={this.makeActive}
+                activeCard={activeCard}
+            />
         );
     };
 };

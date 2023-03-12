@@ -3,10 +3,10 @@ import './CardItemView.css';
 
 class CardItemView extends Component {
     render() {
-        const { title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart } = this.props;
+        const { title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard  } = this.props;
         const tagsList = Object.keys(tags);
         return (
-            <div className='food-menu__card'>
+            <div className={activeCard === id ? 'food-menu__card fm__card__active' : 'food-menu__card'} onClick={() => makeActive(id)}>
                 <img className='fm__picture' src={src} alt={alt} />
                 <div>
                     <div className='fm__card__header'>

@@ -33,10 +33,8 @@ class MenuPage extends Component {
     };
 
     deleteCard = () => {
-        const { cardsList } = this.state;
-        const newCardsList = cardsList.filter((_, idx) => idx !== 0);
-        this.setState(() => ({ 
-            cardsList: newCardsList 
+        this.setState(({ cardsList }) => ({ 
+            cardsList: cardsList.filter((_, idx) => idx !== 0)
         }));
     };
 

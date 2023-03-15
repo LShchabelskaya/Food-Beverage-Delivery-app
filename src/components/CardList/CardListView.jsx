@@ -4,11 +4,12 @@ import CardItem from '../CardItem/CardItem';
 
 class CardListView extends Component {
     render() {
-        const { cards, updateMainState, deleteTag, makeActive, activeCard } = this.props;
+        const { cards, updateMainState, deleteTag, makeActive, activeCard, onDragHandler, onDragOverHandler, onDropHandler } = this.props;
         return (
-            <div className='food-menu__list'>
+            <div className='food-menu__list' onDrop={(event) => onDropHandler(event)} onDragOver={(event) => onDragOverHandler(event)}>
                 {cards.map((card) => (
                     <CardItem
+                        card={card}
                         key={card.id}
                         title={card.title}
                         price={card.price}
@@ -21,6 +22,7 @@ class CardListView extends Component {
                         updateMainState={updateMainState}
                         makeActive={makeActive}
                         activeCard={activeCard}
+                        onDragHandler={onDragHandler}
                     />
                 ))}
             </div>

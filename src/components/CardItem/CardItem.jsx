@@ -30,10 +30,11 @@ class CardItem extends Component {
     };
 
     render() {
-        const { title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard } = this.props;
+        const { card, title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard, onDragHandler } = this.props;
         const { cardInputValue } = this.state;
         return (
             <CardItemView
+                card={card}
                 title={title}
                 price={price}
                 text={text}
@@ -47,6 +48,7 @@ class CardItem extends Component {
                 addToCart={this.addToCart}
                 makeActive={makeActive}
                 activeCard={activeCard}
+                onDragHandler={onDragHandler}
             />
         );
     };

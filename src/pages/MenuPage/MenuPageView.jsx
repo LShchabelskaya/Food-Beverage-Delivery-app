@@ -6,7 +6,7 @@ import FoodMenuBtn from '../../components/FoodMenuBtn/FoodMenuBtn';
 
 class MenuPageView extends Component {
     render() {
-        const { navigateToMain, cardsList, sortByFun, sortByInsert, addCard, deleteCard, deleteTag } = this.props;
+        const { navigateToMain, cardsList, sortByFun, sortByInsert, addCard, deleteCard, deleteTag, updateMenuPageState } = this.props;
         return (
             <div className='menu-page__wrapper'>
                 <div className='food-menu__options'>
@@ -15,7 +15,7 @@ class MenuPageView extends Component {
                     <FoodMenuBtn text={'Add'} onClick={addCard} />
                     <FoodMenuBtn text={'Delete'} onClick={deleteCard} />
                 </div>
-                <CardList cards={cardsList} deleteTag={deleteTag} />
+                <CardList cards={cardsList} deleteTag={deleteTag} updateMenuPageState={updateMenuPageState} />
                 <div className='food-menu__btn-wrapper'>
                     <CommonBtn text='Back to main page' onClick={navigateToMain} />
                 </div>

@@ -6,7 +6,8 @@ class CardList extends Component {
         super(props);
 
         this.state = {
-            activeCard: ''
+            activeCard: '',
+            draggedCard: {}
         };
     };
 
@@ -19,6 +20,25 @@ class CardList extends Component {
         };
     };
 
+    onDragHandler = (event, card) => {
+        event.preventDefault();
+        this.setState(() => ({
+            draggedCard: card
+        }));
+    };
+
+    onDragOverHandler = (event) => {
+        event.preventDefault();
+    };
+
+    onDropHandler = (event) => {
+        const { draggedCard } = this.state;
+        const { updateMenuPageState } = this.props;
+        const target = event.target;
+        const closestCard = target.closest('.food-menu__card');
+        updateMenuPageState(draggedCard.id, closestCard.id);
+    };
+
     render() {
         const { cards, updateMainState, deleteTag } = this.props;
         const { activeCard } = this.state;
@@ -29,6 +49,9 @@ class CardList extends Component {
                 updateMainState={updateMainState}
                 makeActive={this.makeActive}
                 activeCard={activeCard}
+                onDragHandler={this.onDragHandler}
+                onDragOverHandler={this.onDragOverHandler}
+                onDropHandler={this.onDropHandler}
             />
         );
     };

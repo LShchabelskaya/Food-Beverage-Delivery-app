@@ -3,10 +3,16 @@ import './CardItemView.css';
 
 class CardItemView extends Component {
     render() {
-        const { title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard  } = this.props;
+        const { card, title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard, onDragHandler  } = this.props;
         const tagsList = Object.keys(tags);
         return (
-            <div className={activeCard === id ? 'food-menu__card fm__card__active' : 'food-menu__card'} onClick={() => makeActive(id)}>
+            <div 
+                className={activeCard === id ? 'food-menu__card fm__card__active' : 'food-menu__card'}
+                id={id} 
+                onClick={() => makeActive(id)} 
+                draggable
+                onDrag={(event) => onDragHandler(event, card)}
+            >
                 <img className='fm__picture' src={src} alt={alt} />
                 <div>
                     <div className='fm__card__header'>

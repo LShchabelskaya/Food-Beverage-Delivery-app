@@ -13,6 +13,22 @@ class MenuPage extends Component {
         };
     };
 
+    swapHelper = (arr, a, b) => {
+        const temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        return arr;
+    };
+
+    updateMenuPageState = (draggedId, droppedId) => {
+        const { cardsList } = this.state;
+        const draggedIndex = cardsList.findIndex((el) => el.id === draggedId);
+        const droppedIndex = cardsList.findIndex((el) => el.id === droppedId);
+        this.setState(() => ({
+            cardsList: this.swapHelper([...cardsList], draggedIndex, droppedIndex)
+        }));
+    };
+
     addCard = () => {
         const newCard = {
             id: uuidv4(),
@@ -90,6 +106,7 @@ class MenuPage extends Component {
                 addCard={this.addCard}
                 deleteCard={this.deleteCard}
                 deleteTag={this.deleteTag}
+                updateMenuPageState={this.updateMenuPageState}
             />
         );
     };

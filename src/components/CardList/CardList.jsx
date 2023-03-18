@@ -31,12 +31,7 @@ class CardList extends Component {
     };
 
     makeActive = (id) => {
-        const { activeCard } = this.state;
-        if (activeCard !== id) {
-            this.setState(() => ({ activeCard: id }));
-        } else {
-            this.setState(() => ({ activeCard: '' }));
-        };
+        this.setState(({activeCard}) => ({activeCard: activeCard !== id ? id : ''}));
     };
 
     onDragHandler = (event, card) => {

@@ -11,12 +11,31 @@ class CardList extends Component {
         };
     };
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.hotKeyHandler);
+    };
+
+    hotKeyHandler = (event) => {
+        if (event.shiftKey && event.keyCode === 87) {
+            const { activeCard } = this.state;
+            const { cards } = this.props;
+            if (!activeCard) {
+                this.makeActive(cards[0].id);
+            } else {
+                const activeCardElement = cards.find(item => item.id === activeCard);
+                const activeCardIdx = cards.indexOf(activeCardElement);
+                const nextIndex = (activeCardIdx + 1) <= (cards.length - 1) ? (activeCardIdx + 1) : 0;
+                this.makeActive(cards[nextIndex].id);
+            };
+        };
+    };
+
     makeActive = (id) => {
         const { activeCard } = this.state;
         if (activeCard !== id) {
-            this.setState(() => ({activeCard: id}));
+            this.setState(() => ({ activeCard: id }));
         } else {
-            this.setState(() => ({activeCard: ''}));
+            this.setState(() => ({ activeCard: '' }));
         };
     };
 
@@ -43,7 +62,7 @@ class CardList extends Component {
         const { cards, updateMainState, deleteTag } = this.props;
         const { activeCard } = this.state;
         return (
-            <CardListView 
+            <CardListView
                 cards={cards}
                 deleteTag={deleteTag}
                 updateMainState={updateMainState}

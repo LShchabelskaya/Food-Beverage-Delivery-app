@@ -3,7 +3,7 @@ import './CardItemView.css';
 
 class CardItemView extends Component {
     render() {
-        const { card, title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard, onDragHandler  } = this.props;
+        const { card, title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard, onDragHandler } = this.props;
         const tagsList = Object.keys(tags);
         return (
             <div 

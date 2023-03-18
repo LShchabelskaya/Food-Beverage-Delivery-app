@@ -6,7 +6,11 @@ class CardListView extends Component {
     render() {
         const { cards, updateMainState, deleteTag, makeActive, activeCard, onDragHandler, onDragOverHandler, onDropHandler } = this.props;
         return (
-            <div className='food-menu__list' onDrop={(event) => onDropHandler(event)} onDragOver={(event) => onDragOverHandler(event)}>
+            <div 
+                className='food-menu__list' 
+                onDrop={(event) => onDropHandler(event)} 
+                onDragOver={(event) => onDragOverHandler(event)}
+            >
                 {cards.map((card) => (
                     <CardItem
                         card={card}

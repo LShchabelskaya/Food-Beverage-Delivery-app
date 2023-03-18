@@ -10,6 +10,7 @@ import Faq from '../../components/Faq/Faq';
 import Call from '../../components/Call/Call';
 import OrderNow from '../../components/OrderNow/OrderNow';
 import Footer from '../../components/Footer/Footer';
+import Team from '../../components/Team/Team';
 
 class MainPageView extends Component {
     render() {
@@ -25,6 +26,7 @@ class MainPageView extends Component {
                     <FoodMenu updateMainState={updateMainState} navigateToMenu={navigateToMenu} />
                     <Faq />
                     <Call />
+                    <Team />
                     <OrderNow />
                 </main>
                 <Footer />

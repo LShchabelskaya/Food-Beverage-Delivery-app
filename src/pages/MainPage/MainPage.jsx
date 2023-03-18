@@ -25,15 +25,9 @@ class MainPage extends Component {
             return;
         };
 
-        if (scrollPosition >= this.infoLineRef.current.offsetHeight) {
-            this.setState(() => ({
-                isStickyHeader: true
-            }));
-        } else {
-            this.setState(() => ({
-                isStickyHeader: false
-            }));
-        };
+        this.setState({
+            isStickyHeader: scrollPosition >= this.infoLineRef.current.offsetHeight
+        });
     };
 
     scrollListener = () => {

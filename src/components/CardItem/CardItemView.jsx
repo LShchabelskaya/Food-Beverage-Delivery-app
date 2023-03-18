@@ -1,9 +1,12 @@
 import { Component } from 'react';
 import './CardItemView.css';
+import test_photo from '../../img/food-menu_cards/test_photo.png';
 
 class CardItemView extends Component {
     render() {
-        const { card, title, price, text, src, alt, tags, deleteTag, id, cardInputValue, cardInputHandler, addToCart, makeActive, activeCard, onDragHandler } = this.props;
+        const { card, title, price, text, src, alt, tags, deleteTag, id, 
+                cardInputValue, cardInputHandler, addToCart, makeActive, 
+                activeCard, onDragHandler, onLoadHandler, errored, onErrorHandler } = this.props;
         const tagsList = Object.keys(tags);
         return (
             <div 
@@ -13,7 +16,13 @@ class CardItemView extends Component {
                 draggable
                 onDrag={(event) => onDragHandler(event, card)}
             >
-                <img className='fm__picture' src={src} alt={alt} />
+                <img 
+                    className='fm__picture' 
+                    src={errored ? test_photo : src} 
+                    alt={alt} 
+                    onLoad={onLoadHandler}
+                    onError={onErrorHandler}
+                />
                 <div>
                     <div className='fm__card__header'>
                         <h3 className='fm__header__title'>{title}</h3>

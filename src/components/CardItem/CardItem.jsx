@@ -7,7 +7,8 @@ class CardItem extends Component {
         super(props);
 
         this.state = {
-            cardInputValue: 1
+            cardInputValue: 1,
+            errored: false
         };
     };
 
@@ -29,9 +30,22 @@ class CardItem extends Component {
         };
     };
 
+    onLoadHandler = () => {
+        console.log('img was updated succesfully!');
+    };
+
+    onErrorHandler = () => {
+        const { errored } = this.state;
+        if(!errored) {
+            this.setState({
+                errored: true
+            });
+        };
+    };
+
     render() {
         const { card, title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard, onDragHandler } = this.props;
-        const { cardInputValue } = this.state;
+        const { cardInputValue, errored } = this.state;
         return (
             <CardItemView
                 card={card}
@@ -49,6 +63,9 @@ class CardItem extends Component {
                 makeActive={makeActive}
                 activeCard={activeCard}
                 onDragHandler={onDragHandler}
+                onLoadHandler={this.onLoadHandler}
+                onErrorHandler={this.onErrorHandler}
+                errored={errored}
             />
         );
     };

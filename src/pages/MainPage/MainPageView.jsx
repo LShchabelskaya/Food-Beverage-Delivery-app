@@ -11,7 +11,6 @@ import Call from '../../components/Call/Call';
 import OrderNow from '../../components/OrderNow/OrderNow';
 import Footer from '../../components/Footer/Footer';
 import Team from '../../components/Team/Team';
-
 class MainPageView extends Component {
     render() {
         const { cartCounterValue, navigateToMenu, updateMainState, infoLineRef, isStickyHeader } = this.props;
@@ -21,7 +20,7 @@ class MainPageView extends Component {
                 <Header cartCounterValue={cartCounterValue} isStickyHeader={isStickyHeader} />
                 <main className='page'>
                     <Main />
-                    <About />
+                    <About navigateToMenu={navigateToMenu} />
                     <How />
                     <FoodMenu updateMainState={updateMainState} navigateToMenu={navigateToMenu} />
                     <Faq />

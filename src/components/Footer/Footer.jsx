@@ -1,12 +1,26 @@
 import { Component } from 'react';
 import './Footer.css';
 import logo from '../../img/Logo.svg';
-import FooterLink from '../FooterLink/FooterLink';
 import FooterMediaItem from '../FooterMediaItem/FooterMediaItem';
+import FooterNavColumn from '../FooterNavColumn/FooterNavColumn';
 import instagram from '../../img/media/instagram.svg';
 import twitter from '../../img/media/twitter.svg';
 import youtube from '../../img/media/youtube.svg';
 
+const columns = [
+    {
+        title: 'Company',
+        links: ['Home', 'Order', 'FAQ', 'Contact']
+    },
+    {
+        title: 'Template',
+        links: ['Style Guide', 'Changelog', 'Licence', 'Webflow University']
+    },
+    {
+        title: 'Flowbase',
+        links: ['More Cloneables']
+    }
+];
 class Footer extends Component {
     render() {
         return (
@@ -19,30 +33,11 @@ class Footer extends Component {
                             <span>for small - medium businesses.</span>
                         </div>
                         <div className='footer__navigation'>
-                            <div className='footer__navigation__column'>
-                                <h3>Company</h3>
-                                <ul className='footer__list'>
-                                    <FooterLink text={'Home'} />
-                                    <FooterLink text={'Order'} />
-                                    <FooterLink text={'FAQ'} />
-                                    <FooterLink text={'Contact'} />
-                                </ul>
-                            </div>
-                            <div className='footer__navigation__column'>
-                                <h3>Template</h3>
-                                <ul className='footer__list'>
-                                    <FooterLink text={'Style Guide'} />
-                                    <FooterLink text={'Changelog'} />
-                                    <FooterLink text={'Licence'} />
-                                    <FooterLink text={'Webflow University'} />
-                                </ul>
-                            </div>
-                            <div className='footer__navigation__column'>
-                                <h3>Flowbase</h3>
-                                <ul className='footer__list'>
-                                    <FooterLink text={'More Cloneables'} />
-                                </ul>
-                            </div>
+                            {columns.map(column => (<FooterNavColumn 
+                                key={column.title} 
+                                title={column.title} 
+                                links={column.links} 
+                            />))}
                         </div>
                     </div>
                     <div className='footer__options'>

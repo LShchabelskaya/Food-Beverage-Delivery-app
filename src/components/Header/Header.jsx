@@ -17,11 +17,10 @@ class Header extends Component {
         }));
     };
 
-    componentDidUpdate = () => {
-        if(this.state.isMenuOpen) {
-            document.body.classList.add('_lock');
-        } else {
-            document.body.classList.remove('_lock');
+    componentDidUpdate = (prevState) => {
+        const {isMenuOpen} = this.state;
+        if(isMenuOpen !== prevState.isMenuOpen) {
+            isMenuOpen ? document.body.classList.add('_lock') : document.body.classList.remove('_lock');
         };
     };
 

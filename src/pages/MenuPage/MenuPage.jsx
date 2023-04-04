@@ -65,21 +65,22 @@ class MenuPage extends Component {
     };
 
     insertFun = (arr) => {
-        for (let i = 1; i < arr.length; i++) {
-            const current = +arr[i].price;
+        const arrToSort = [...arr];
+        for (let i = 1; i < arrToSort.length; i++) {
+            const current = +arrToSort[i].price;
             let j = i;
-            while (j > 0 && (parseFloat(arr[j - 1].price)) > current) {
-                arr[j].price = arr[j - 1].price;
+            while (j > 0 && (parseFloat(arrToSort[j - 1].price)) > current) {
+                arrToSort[j].price = arrToSort[j - 1].price;
                 j--;
             };
-            arr[j].price = `${current}`;
+            arrToSort[j].price = `${current}`;
         };
-        return arr;
+        return arrToSort;
     };
 
     sortByInsert = () => {
         const { cardsList } = this.state;
-        const newCardsList = this.insertFun([...cardsList]);
+        const newCardsList = this.insertFun(cardsList);
         this.setState(() => ({ 
             cardsList: newCardsList 
         }));

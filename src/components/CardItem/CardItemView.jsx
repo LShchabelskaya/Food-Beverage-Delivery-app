@@ -4,22 +4,22 @@ import test_photo from '../../img/food-menu_cards/test_photo.png';
 
 class CardItemView extends Component {
     render() {
-        const { card, title, price, text, src, alt, tags, deleteTag, id, 
-                cardInputValue, cardInputHandler, addToCart, makeActive, 
-                activeCard, onDragHandler, onLoadHandler, errored, onErrorHandler } = this.props;
+        const { card, title, price, text, src, alt, tags, deleteTag, id,
+            cardInputValue, cardInputHandler, addToCart, makeActive,
+            activeCard, onDragHandler, onLoadHandler, errored, onErrorHandler } = this.props;
         const tagsList = Object.keys(tags);
         return (
-            <div 
+            <div
                 className={activeCard === id ? 'food-menu__card fm__card__active' : 'food-menu__card'}
-                id={id} 
-                onClick={() => makeActive(id)} 
+                id={id}
+                onClick={() => makeActive(id)}
                 draggable
                 onDrag={(event) => onDragHandler(event, card)}
             >
-                <img 
-                    className='fm__picture' 
-                    src={errored ? test_photo : src} 
-                    alt={alt} 
+                <img
+                    className='fm__picture'
+                    src={errored ? test_photo : src}
+                    alt={alt}
                     onLoad={onLoadHandler}
                     onError={onErrorHandler}
                 />
@@ -30,14 +30,12 @@ class CardItemView extends Component {
                     </div>
                     <p className='fm__card__text'>{text}</p>
                     <div>
-                        {tagsList.map((item) => {
-                            return (
-                                <span key={item} className='tag'>
-                                    {item + tags[item]}
-                                    <i onClick={() => deleteTag(id, item)}>x</i>
-                                </span>
-                            )
-                        })}
+                        {tagsList.map((item) => (
+                            <span key={item} className='tag'>
+                                {item + tags[item]}
+                                <i onClick={() => deleteTag(id, item)}>x</i>
+                            </span>
+                        ))}
                     </div>
                     <div className='fm__card__order'>
                         <input

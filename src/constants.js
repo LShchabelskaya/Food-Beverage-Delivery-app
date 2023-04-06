@@ -6,6 +6,10 @@ import burger_spicy from './img/food-menu_cards/food-menu_5.svg';
 import burger_classic from './img/food-menu_cards/food-menu_6.svg';
 import { v4 as uuidv4 } from 'uuid';
 
+export const MOBILE_WIDTH = 768;
+export const SCROLL_DURATION = 500;
+export const SCROLL_OFFSET = -100;
+
 export const cards = [
     {
         id: uuidv4(),
@@ -85,4 +89,42 @@ export const cards = [
             size: 8
         }
     }
-]
+];
+
+export const navlinks = [
+    {
+        name: 'Home',
+        to: 'main'
+    }, 
+    {
+        name: 'Order',
+        to: 'order-now'
+    },
+    {
+        name: 'About',
+        to: 'about'
+    },
+    {
+        name: 'FAQ',
+        to: 'faq'
+    },
+    {
+        name: 'Call',
+        to: 'call'
+    }
+];
+
+export const columns = [
+    {
+        title: 'Company',
+        links: ['Home', 'Order', 'FAQ', 'Contact']
+    },
+    {
+        title: 'Template',
+        links: ['Style Guide', 'Changelog', 'Licence', 'Webflow University']
+    },
+    {
+        title: 'Flowbase',
+        links: ['More Cloneables']
+    }
+];

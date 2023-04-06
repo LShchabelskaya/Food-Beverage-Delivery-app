@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import HeaderView from './HeaderView';
+import { MOBILE_WIDTH } from '../../constants';
 
 class Header extends Component {
     constructor(props) {
@@ -15,6 +16,12 @@ class Header extends Component {
         this.setState(({ isMenuOpen }) => ({
             isMenuOpen: !isMenuOpen
         }));
+    };
+
+    linkClickHandler = () => {
+        if(window.innerWidth < MOBILE_WIDTH) {
+            this.setState({ isMenuOpen: false });
+        };
     };
 
     componentDidUpdate = (prevState) => {
@@ -33,6 +40,7 @@ class Header extends Component {
                 cartCounterValue={cartCounterValue}
                 menuIconClickHandler={this.menuIconClickHandler}
                 isStickyHeader={isStickyHeader}
+                linkClickHandler={this.linkClickHandler}
             />
         );
     };

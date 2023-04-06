@@ -86,6 +86,20 @@ body._lock {
     transform: translate(-50%, -50%);
 }
 
+.menu__link {
+    color: #28224B;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.menu__link:hover {
+    color: #35B8BE;
+}
+
+.active {
+    color: #35B8BE;
+}
+
 /* ------------------- */
 /* ------------------- */
 
@@ -202,6 +216,15 @@ body._lock {
 
     .sticky .menu__body {
         top: 100px;
+    }
+
+    .menu__link {
+        font-size: 24px;
+        color: #FFFFFF;
+    }
+
+    .menu__link:hover {
+        color: #FFFFFF;
     }
 }
 

@@ -6,21 +6,9 @@ import FooterNavColumn from '../FooterNavColumn/FooterNavColumn';
 import instagram from '../../img/media/instagram.svg';
 import twitter from '../../img/media/twitter.svg';
 import youtube from '../../img/media/youtube.svg';
+import { columns, SCROLL_DURATION, SCROLL_OFFSET } from '../../constants';
+import { Link } from 'react-scroll';
 
-const columns = [
-    {
-        title: 'Company',
-        links: ['Home', 'Order', 'FAQ', 'Contact']
-    },
-    {
-        title: 'Template',
-        links: ['Style Guide', 'Changelog', 'Licence', 'Webflow University']
-    },
-    {
-        title: 'Flowbase',
-        links: ['More Cloneables']
-    }
-];
 class Footer extends Component {
     render() {
         return (
@@ -28,15 +16,23 @@ class Footer extends Component {
                 <div className='footer__container'>
                     <div className='footer__content'>
                         <div className='footer__address'>
-                            <button type='button' className='footer__logo navlink'><img data-goto='.main' src={logo} alt='Logo' /></button>
+                            <Link 
+                                to={'main'} 
+                                smooth={true} 
+                                offset={SCROLL_OFFSET} 
+                                duration={SCROLL_DURATION} 
+                                className='footer__logo navlink'
+                            >
+                                <img src={logo} alt='Logo' />
+                            </Link>
                             <p>Takeaway & Delivery template</p>
                             <span>for small - medium businesses.</span>
                         </div>
                         <div className='footer__navigation'>
-                            {columns.map(column => (<FooterNavColumn 
-                                key={column.title} 
-                                title={column.title} 
-                                links={column.links} 
+                            {columns.map(column => (<FooterNavColumn
+                                key={column.title}
+                                title={column.title}
+                                links={column.links}
                             />))}
                         </div>
                     </div>

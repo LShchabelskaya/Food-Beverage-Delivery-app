@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MainPageView from './MainPageView';
+import { MOBILE_WIDTH } from '../../constants';
 
 class MainPage extends Component {
 
@@ -36,12 +37,12 @@ class MainPage extends Component {
 
     setScrollListener = () => {
         const { isScrollListenerActive } = this.state;
-        if (window.innerWidth < 768 && !isScrollListenerActive) {
+        if (window.innerWidth < MOBILE_WIDTH && !isScrollListenerActive) {
             this.setState(() => ({
                 isScrollListenerActive: true
             }));
             this.scrollListener();
-        } else if (window.innerWidth > 768 && isScrollListenerActive) {
+        } else if (window.innerWidth > MOBILE_WIDTH && isScrollListenerActive) {
             this.setState(() => ({
                 isScrollListenerActive: false
             }));
@@ -54,7 +55,7 @@ class MainPage extends Component {
     };
 
     componentDidMount = () => {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < MOBILE_WIDTH) {
             this.scrollListener();
             this.setState(() => ({
                 isScrollListenerActive: true

@@ -1,24 +1,18 @@
-import { Component } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import FoodMenuView from './FoodMenuView';
 import { cards } from '../../constants';
 
-class FoodMenu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { cards };
-    };
+function FoodMenu({ updateMainState, navigateToMenu }) {
+    const [cardsList] = useState(cards);
 
-    render() {
-        const { updateMainState, navigateToMenu } = this.props;
-        const { cards } = this.state;
-        return (
-            <FoodMenuView
-                updateMainState={updateMainState}
-                navigateToMenu={navigateToMenu}
-                cards={cards}
-            />
-        );
-    };
+    return (
+        <FoodMenuView
+            updateMainState={updateMainState}
+            navigateToMenu={navigateToMenu}
+            cards={cardsList}
+        />
+    );
 };
 
 export default FoodMenu;

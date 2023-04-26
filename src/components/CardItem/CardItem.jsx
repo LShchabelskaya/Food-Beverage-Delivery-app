@@ -1,74 +1,65 @@
-import { Component } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import CardItemView from './CardItemView';
 
+function CardItem({ card, title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard, onDragHandler, updateMainState }) {
+    const [cardItem, setCardItem] = useState({
+        inputValue: 1,
+        errored: false
+    });
 
-class CardItem extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            cardInputValue: 1,
-            errored: false
-        };
-    };
-
-    cardInputHandler = (e) => {
-        this.setState({
-            cardInputValue: e.target.value
+    const cardInputHandler = (e) => {
+        setCardItem({
+            ...cardItem,
+            inputValue: e.target.value
         });
     };
 
-    addToCart = () => {
-        const { cardInputValue } = this.state;                            // <----- doesn't work on the MenuPage
-        const { updateMainState } = this.props;
-        if (+cardInputValue > 0 && Number.isInteger(+cardInputValue)) {
-            updateMainState(cardInputValue);                               // <----- temporary solution until we use Context
+    const addToCart = () => {
+        if (+cardItem.inputValue > 0 && Number.isInteger(+cardItem.inputValue)) {
+            updateMainState(cardItem.inputValue);                               // <----- temporary solution until we use Context
         } else {
-            this.setState({
-                cardInputValue: 1
+            setCardItem({
+                ...cardItem,
+                inputValue: 1
             });
         };
     };
 
-    onLoadHandler = () => {
+    const onLoadHandler = () => {
         console.log('img was updated succesfully!');
     };
 
-    onErrorHandler = () => {
-        const { errored } = this.state;
-        if(!errored) {
-            this.setState({
+    const onErrorHandler = () => {
+        if (!cardItem.errored) {
+            setCardItem({
+                ...cardItem,
                 errored: true
             });
         };
     };
 
-    render() {
-        const { card, title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard, onDragHandler } = this.props;
-        const { cardInputValue, errored } = this.state;
-        return (
-            <CardItemView
-                card={card}
-                title={title}
-                price={price}
-                text={text}
-                src={src}
-                alt={alt}
-                tags={tags}
-                deleteTag={deleteTag}
-                id={id}
-                cardInputValue={cardInputValue}
-                cardInputHandler={this.cardInputHandler}
-                addToCart={this.addToCart}
-                makeActive={makeActive}
-                activeCard={activeCard}
-                onDragHandler={onDragHandler}
-                onLoadHandler={this.onLoadHandler}
-                onErrorHandler={this.onErrorHandler}
-                errored={errored}
-            />
-        );
-    };
+    return (
+        <CardItemView
+            card={card}
+            title={title}
+            price={price}
+            text={text}
+            src={src}
+            alt={alt}
+            tags={tags}
+            deleteTag={deleteTag}
+            id={id}
+            cardInputValue={cardItem.inputValue}
+            cardInputHandler={cardInputHandler}
+            addToCart={addToCart}
+            makeActive={makeActive}
+            activeCard={activeCard}
+            onDragHandler={onDragHandler}
+            onLoadHandler={onLoadHandler}
+            onErrorHandler={onErrorHandler}
+            errored={cardItem.errored}
+        />);
 };
 
 export default CardItem;

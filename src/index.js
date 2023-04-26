@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AppWithRouter } from './App';
-import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { CardsContext } from './components/CardsProvider/CardsProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AppWithRouter />
-    </BrowserRouter>
+    <CardsContext>
+      <App />
+    </CardsContext>
   </React.StrictMode>
 );

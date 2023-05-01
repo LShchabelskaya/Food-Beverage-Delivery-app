@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import CardListView from './CardListView';
+import { CardsContext } from '../../components/CardsProvider/CardsProvider';
 
-function CardList({ cards, updateMenuPageState, deleteTag, updateMainState }) {
+function CardList() {
     const [cardsState, setCardsState] = useState({
         activeCard: '',
         draggedCard: {}
     });
+
+    const { cardsList, setCardsList } = useContext(CardsContext);
 
     useEffect(() => {
         document.addEventListener('keydown', hotKeyHandler);
@@ -15,12 +18,12 @@ function CardList({ cards, updateMenuPageState, deleteTag, updateMainState }) {
     const hotKeyHandler = (event) => {
         if (event.shiftKey && event.keyCode === 87) {
             if (!cardsState.activeCard) {
-                makeActive(cards[0].id);
+                makeActive(cardsList[0].id);
             } else {
-                const activeCardElement = cards.find(item => item.id === cardsState.activeCard);
-                const activeCardIdx = cards.indexOf(activeCardElement);
-                const nextIndex = (activeCardIdx + 1) <= (cards.length - 1) ? (activeCardIdx + 1) : 0;
-                makeActive(cards[nextIndex].id);
+                const activeCardElement = cardsList.find(item => item.id === cardsState.activeCard);
+                const activeCardIdx = cardsList.indexOf(activeCardElement);
+                const nextIndex = (activeCardIdx + 1) <= (cardsList.length - 1) ? (activeCardIdx + 1) : 0;
+                makeActive(cardsList[nextIndex].id);
             };
         };
     };
@@ -30,6 +33,19 @@ function CardList({ cards, updateMenuPageState, deleteTag, updateMainState }) {
             ...cardsState,
             activeCard: cardsState.activeCard !== id ? id : ''
         });
+    };
+
+    const swapHelper = (arr, a, b) => {
+        const temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        return arr;
+    };
+
+    const swapCards = (draggedId, droppedId) => {
+        const draggedIndex = cardsList.findIndex((el) => el.id === draggedId);
+        const droppedIndex = cardsList.findIndex((el) => el.id === droppedId);
+        setCardsList(swapHelper(cardsList, draggedIndex, droppedIndex));
     };
 
     const onDragHandler = (event, card) => {
@@ -47,14 +63,16 @@ function CardList({ cards, updateMenuPageState, deleteTag, updateMainState }) {
     const onDropHandler = (event) => {
         const target = event.target;
         const closestCard = target.closest('.food-menu__card');
-        updateMenuPageState(cardsState.draggedCard.id, closestCard.id);
+        swapCards(cardsState.draggedCard.id, closestCard.id);
+        setCardsState({
+            ...cardsState,
+            draggedCard: {}
+        });
     };
 
     return (
         <CardListView
-            cards={cards}
-            deleteTag={deleteTag}
-            updateMainState={updateMainState}
+            cards={cardsList}
             makeActive={makeActive}
             activeCard={cardsState.activeCard}
             onDragHandler={onDragHandler}

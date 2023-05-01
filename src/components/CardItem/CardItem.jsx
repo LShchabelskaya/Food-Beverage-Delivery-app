@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import CardItemView from './CardItemView';
+import { CardsContext } from '../../components/CardsProvider/CardsProvider';
 
-function CardItem({ card, title, price, text, src, alt, tags, deleteTag, id, makeActive, activeCard, onDragHandler, updateMainState }) {
+function CardItem({ card, title, price, text, src, alt, tags, id, makeActive, activeCard, onDragHandler }) {
     const [cardItem, setCardItem] = useState({
         inputValue: 1,
         errored: false
     });
+
+    const { increaseCartCounter, deleteTag } = useContext(CardsContext);
 
     const cardInputHandler = (e) => {
         setCardItem({
@@ -17,7 +20,7 @@ function CardItem({ card, title, price, text, src, alt, tags, deleteTag, id, mak
 
     const addToCart = () => {
         if (+cardItem.inputValue > 0 && Number.isInteger(+cardItem.inputValue)) {
-            updateMainState(cardItem.inputValue);                               // <----- temporary solution until we use Context
+            increaseCartCounter(cardItem.inputValue);
         } else {
             setCardItem({
                 ...cardItem,

@@ -12,16 +12,16 @@ import OrderNow from '../../components/OrderNow/OrderNow';
 import Footer from '../../components/Footer/Footer';
 import Team from '../../components/Team/Team';
 
-function MainPageView({ cartCounterValue, navigateToMenu, updateMainState, infoLineRef, isStickyHeader }) {
+function MainPageView({ navigateToMenu, infoLineRef, isStickyHeader }) {
     return (
         <div className='wrapper'>
             <InfoLine infoLineRef={infoLineRef} />
-            <Header cartCounterValue={cartCounterValue} isStickyHeader={isStickyHeader} />
+            <Header isStickyHeader={isStickyHeader} />
             <main className='page'>
                 <Main />
                 <About navigateToMenu={navigateToMenu} />
                 <How />
-                <FoodMenu updateMainState={updateMainState} navigateToMenu={navigateToMenu} />
+                <FoodMenu navigateToMenu={navigateToMenu} />
                 <Faq />
                 <Call />
                 <Team />

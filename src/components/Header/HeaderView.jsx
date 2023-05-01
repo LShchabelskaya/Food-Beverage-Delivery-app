@@ -6,7 +6,7 @@ import basket from '../../img/Basket.svg';
 import { navlinks, SCROLL_DURATION, SCROLL_OFFSET } from '../../constants';
 
 
-function HeaderView({ isMenuOpen, cartCounterValue, menuIconClickHandler, isStickyHeader, linkClickHandler }) {
+function HeaderView({ isMenuOpen, cartCounter, menuIconClickHandler, isStickyHeader, linkClickHandler }) {
     return (
         <header className={isStickyHeader ? 'header sticky' : 'header'}>
             <div className='header__container'>
@@ -40,7 +40,7 @@ function HeaderView({ isMenuOpen, cartCounterValue, menuIconClickHandler, isStic
                     <button type='button' className='menu__basket'>
                         <img className='menu__basket__cart' src={basket} alt='Basket' />
                         <div className='menu__basket__counter'>
-                            <p>{cartCounterValue}</p>
+                            <p>{cartCounter}</p>
                         </div>
                     </button>
                 </div>

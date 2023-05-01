@@ -2,7 +2,7 @@ import * as React from 'react';
 import './CardListView.css';
 import CardItem from '../CardItem/CardItem';
 
-function CardListView({ cards, updateMainState, deleteTag, makeActive, activeCard, onDragHandler, onDragOverHandler, onDropHandler }) {
+function CardListView({ cards, makeActive, activeCard, onDragHandler, onDragOverHandler, onDropHandler }) {
     return (
         <div
             className='food-menu__list'
@@ -20,8 +20,6 @@ function CardListView({ cards, updateMainState, deleteTag, makeActive, activeCar
                     alt={card.alt}
                     tags={card.tags}
                     id={card.id}
-                    deleteTag={deleteTag}
-                    updateMainState={updateMainState}
                     makeActive={makeActive}
                     activeCard={activeCard}
                     onDragHandler={onDragHandler}

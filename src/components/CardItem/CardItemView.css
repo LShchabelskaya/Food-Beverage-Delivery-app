@@ -11,6 +11,7 @@
     gap: 28px;
     border: 1px solid rgba(53, 184, 190, 0.15);
     border-radius: 6px;
+    cursor: move;
 }
 
 .fm__card__active {

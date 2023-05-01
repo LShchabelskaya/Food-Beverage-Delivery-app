@@ -1,21 +1,28 @@
-import { createContext, useState } from "react";
-import { cards } from "../../constants";
+import { createContext, useState } from 'react';
+import { cards } from '../../constants';
 
 export const CardsContext = createContext();
 
 function CardsProvider({ children }) {
     const [cardsList, setCardsList] = useState(cards);
+    const [cartCounter, setCartCounter] = useState(0);
 
-    const addCard = (item) => {
-        setCardsList(prevCardsList => [...prevCardsList, item]);
+    const increaseCartCounter = (value) => { 
+        setCartCounter((prevCartCounter) => prevCartCounter + +value);
+
     };
 
-    const deleteCard = () => {
-        setCardsList(prevCardsList => prevCardsList.filter((_, idx) => idx !== 0));
+    const deleteTag = (id, tag) => {
+        const updatedCard = cardsList.find(item => item.id === id);
+        delete updatedCard.tags[tag];
+        const updatedCardIdx = cardsList.findIndex(item => item.id === updatedCard.id);
+        const filteredCards = cardsList.filter(item => item.id !== updatedCard.id);
+        filteredCards.splice(updatedCardIdx, 0, updatedCard);
+        setCardsList(filteredCards);
     };
 
     return (
-        <CardsContext.Provider value={{ cardsList, setCardsList, addCard, deleteCard }}>
+        <CardsContext.Provider value={{ cardsList, setCardsList, cartCounter, increaseCartCounter, deleteTag }}>
             {children}
         </CardsContext.Provider>
     );

@@ -8,10 +8,8 @@ function MainPage() {
     const infoLineRef = useRef(null);
     const navigate = useNavigate();
 
-    const [mainPageState, setMainPageState] = useState({
-        isStickyHeader: false,
-        isScrollListenerActive: false
-    });
+    const [stickyHeader, setStickyHeader] = useState(false);
+    const [scrollListenerActive, setScrollListenerActive] = useState(false);
 
     const navigateToMenu = () => {
         navigate('/menu');
@@ -22,31 +20,22 @@ function MainPage() {
         if (!infoLineRef.current) {
             return;
         };
-        setMainPageState({
-            ...mainPageState,
-            isStickyHeader: scrollPosition >= infoLineRef.current.offsetHeight
-        });
-    }, [mainPageState]);
+        setStickyHeader(scrollPosition >= infoLineRef.current.offsetHeight);
+    }, []);
 
     const scrollListener = useCallback(() => {
         window.addEventListener('scroll', stickHeader);
     }, [stickHeader]);
 
     const setScrollListener = useCallback(() => {
-        if (window.innerWidth < MOBILE_WIDTH && !mainPageState.isScrollListenerActive) {
-            setMainPageState({
-                ...mainPageState,
-                isScrollListenerActive: true
-            });
+        if (window.innerWidth < MOBILE_WIDTH && !scrollListenerActive) {
+            setScrollListenerActive(true);
             scrollListener();
-        } else if (window.innerWidth > MOBILE_WIDTH && mainPageState.isScrollListenerActive) {
-            setMainPageState({
-                ...mainPageState,
-                isScrollListenerActive: false
-            });
+        } else if (window.innerWidth > MOBILE_WIDTH && scrollListenerActive) {
+            setScrollListenerActive(false);
             window.removeEventListener('scroll', stickHeader);
         };
-    }, [mainPageState, scrollListener, stickHeader]);
+    }, [scrollListener, stickHeader, scrollListenerActive]);
 
     const resizeListener = useCallback(() => {
         window.addEventListener('resize', setScrollListener);
@@ -61,13 +50,13 @@ function MainPage() {
             window.removeEventListener('scroll', stickHeader);
             window.removeEventListener('resize', setScrollListener);
         };
-    }, [resizeListener, scrollListener, stickHeader, setScrollListener, mainPageState]);
+    }, [resizeListener, scrollListener, stickHeader, setScrollListener]);
 
     return (
         <MainPageView
             navigateToMenu={navigateToMenu}
             infoLineRef={infoLineRef}
-            isStickyHeader={mainPageState.isStickyHeader}
+            stickyHeader={stickyHeader}
         />
     );
 };

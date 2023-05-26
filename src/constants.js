@@ -13,9 +13,9 @@ export const SCROLL_OFFSET = -100;
 export const cards = [
     {
         id: uuidv4(),
-        title: 'Burger Dreams',
+        title: 'cards.first.title',
         price: '9.20',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.first.text',
         src: burger_dreams,
         alt: 'Burger Dreams',
         tags: {
@@ -26,9 +26,9 @@ export const cards = [
     },
     {
         id: uuidv4(),
-        title: 'Burger Waldo',
+        title: 'cards.second.title',
         price: '10.00',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.second.text',
         src: burger_waldo,
         alt: 'Burger Waldo',
         tags: {
@@ -39,9 +39,9 @@ export const cards = [
     },
     {
         id: uuidv4(),
-        title: 'Burger Cali',
+        title: 'cards.third.title',
         price: '8.00',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.third.text',
         src: burger_cali,
         alt: 'Burger Cali',
         tags: {
@@ -52,9 +52,9 @@ export const cards = [
     },
     {
         id: uuidv4(),
-        title: 'Burger Bacon Buddy',
+        title: 'cards.fourth.title',
         price: '9.99',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.fourth.text',
         src: burger_bacon_buddy,
         alt: 'Burger Bacon Buddy',
         tags: {
@@ -65,9 +65,9 @@ export const cards = [
     },
     {
         id: uuidv4(),
-        title: 'Burger Spicy',
+        title: 'cards.fifth.title',
         price: '9.20',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.fifth.text',
         src: burger_spicy,
         alt: 'Burger Spicy',
         tags: {
@@ -78,9 +78,9 @@ export const cards = [
     },
     {
         id: uuidv4(),
-        title: 'Burger Classic',
+        title: 'cards.sixth.title',
         price: '8.00',
-        text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        text: 'cards.sixth.text',
         src: burger_classic,
         alt: 'Burger Classic',
         tags: {
@@ -93,38 +93,38 @@ export const cards = [
 
 export const navlinks = [
     {
-        name: 'Home',
+        name: 'header.home',
         to: 'main'
     }, 
     {
-        name: 'Order',
+        name: 'header.order',
         to: 'order-now'
     },
     {
-        name: 'About',
+        name: 'header.about',
         to: 'about'
     },
     {
-        name: 'FAQ',
+        name: 'header.faq',
         to: 'faq'
     },
     {
-        name: 'Call',
+        name: 'header.call',
         to: 'call'
     }
 ];
 
 export const columns = [
     {
-        title: 'Company',
-        links: ['Home', 'Order', 'FAQ', 'Contact']
+        title: 'footer.columns.first.title',
+        links: ['footer.columns.first.links.first', 'footer.columns.first.links.second', 'footer.columns.first.links.third', 'footer.columns.first.links.fourth']
     },
     {
-        title: 'Template',
-        links: ['Style Guide', 'Changelog', 'Licence', 'Webflow University']
+        title: 'footer.columns.second.title',
+        links: ['footer.columns.second.links.first', 'footer.columns.second.links.second', 'footer.columns.second.links.third', 'footer.columns.second.links.fourth']
     },
     {
-        title: 'Flowbase',
-        links: ['More Cloneables']
+        title: 'footer.columns.third.title',
+        links: ['footer.columns.third.links.first']
     }
 ];

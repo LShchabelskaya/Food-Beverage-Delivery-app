@@ -12,11 +12,11 @@ import OrderNow from '../../components/OrderNow/OrderNow';
 import Footer from '../../components/Footer/Footer';
 import Team from '../../components/Team/Team';
 
-function MainPageView({ navigateToMenu, infoLineRef, isStickyHeader }) {
+function MainPageView({ navigateToMenu, infoLineRef, stickyHeader }) {
     return (
         <div className='wrapper'>
             <InfoLine infoLineRef={infoLineRef} />
-            <Header isStickyHeader={isStickyHeader} />
+            <Header stickyHeader={stickyHeader} />
             <main className='page'>
                 <Main />
                 <About navigateToMenu={navigateToMenu} />

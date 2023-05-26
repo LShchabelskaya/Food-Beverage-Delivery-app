@@ -8,14 +8,14 @@ function MenuPageView({ navigateToMain, sortByFun, sortByInsert, addCard, delete
     return (
         <div className='menu-page__wrapper'>
             <div className='food-menu__options'>
-                <FoodMenuBtn text={'Sort by function'} onClick={sortByFun} />
-                <FoodMenuBtn text={'Insertion sort'} onClick={sortByInsert} />
-                <FoodMenuBtn text={'Add'} onClick={addCard} />
-                <FoodMenuBtn text={'Delete'} onClick={deleteCard} />
+                <FoodMenuBtn text={'menuPage.buttons.first'} onClick={sortByFun} />
+                <FoodMenuBtn text={'menuPage.buttons.second'} onClick={sortByInsert} />
+                <FoodMenuBtn text={'menuPage.buttons.third'} onClick={addCard} />
+                <FoodMenuBtn text={'menuPage.buttons.fourth'} onClick={deleteCard} />
             </div>
             <CardList />
             <div className='food-menu__btn-wrapper'>
-                <CommonBtn text='Back to main page' onClick={navigateToMain} />
+                <CommonBtn text='menuPage.navButton' onClick={navigateToMain} />
             </div>
         </div>
     );

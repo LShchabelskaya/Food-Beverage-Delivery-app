@@ -2,17 +2,17 @@ import * as React from 'react';
 import './Call.css';
 import call_photo from '../../img/Section_6_img.svg';
 import CommonBtn from '../CommonBtn/CommonBtn';
+import { useTranslation } from 'react-i18next';
 
 function Call() {
+    const { t } = useTranslation();
     return (
         <section className='call'>
             <div className='call__container'>
                 <div className='call__content'>
-                    <h2 className='call__title title'>Call our store and takeaway when it suits you best.</h2>
-                    <p className='call__text'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
-                    <CommonBtn text='Ph. +61 233 2333' />
+                    <h2 className='call__title title'>{t('call.title')}</h2>
+                    <p className='call__text'>{t('call.text')}</p>
+                    <CommonBtn text='call.button' />
                 </div>
                 <div className='call__photo'>
                     <img src={call_photo} alt='Call our store' />

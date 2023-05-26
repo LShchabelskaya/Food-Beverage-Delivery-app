@@ -4,28 +4,30 @@ import HowItem from '../HowItem/HowItem';
 import how_item_1 from '../../img/how_items/how_1.svg';
 import how_item_2 from '../../img/how_items/how_2.svg';
 import how_item_3 from '../../img/how_items/how_3.svg';
+import { useTranslation } from 'react-i18next';
 
 
 function How() {
+    const { t } = useTranslation();
     return (
         <section className='how'>
             <div className='how__container'>
-                <h2 className='how__title title'>How it works.</h2>
+                <h2 className='how__title title'>{t('how.title')}</h2>
                 <div className='how__items'>
                     <HowItem
                         src={how_item_1}
-                        name={'Adapt your menu items'}
-                        text={'Easily adapt your menu using the webflow CMS and allow customers tobrowse your items.'}
+                        name={'how.itemFirst.name'}
+                        text={'how.itemFirst.text'}
                     />
                     <HowItem
                         src={how_item_2}
-                        name={'Accept online orders & takeout'}
-                        text={'Let your customers order and pay via the powerful ecommerce system, or simple let them call your store.'}
+                        name={'how.itemSecond.name'}
+                        text={'how.itemSecond.text'}
                     />
                     <HowItem
                         src={how_item_3}
-                        name={'Manage delivery or takeout'}
-                        text={'Manage your own logistics and take orders simply through the ecommerce system.'}
+                        name={'how.itemThird.name'}
+                        text={'how.itemThird.text'}
                     />
                 </div>
             </div>

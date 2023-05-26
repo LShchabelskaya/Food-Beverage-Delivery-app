@@ -17,9 +17,9 @@ function MenuPage() {
     const addCard = () => {
         const newCard = {
             id: uuidv4(),
-            title: 'Burger Test',
+            title: 'menuPage.testCard.title',
             price: '8.50',
-            text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            text: 'menuPage.testCard.text',
             src: test_photo,
             alt: 'Burger Test',
             tags: {

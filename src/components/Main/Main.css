@@ -1,6 +1,7 @@
 .main {
     padding: 248px 0px 140px;
     background: url("../../img/Section_1_BG_Shape.svg") 0 148px/cover no-repeat;
+    position: relative;
 }
 
 .main__container {

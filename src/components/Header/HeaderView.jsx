@@ -4,11 +4,13 @@ import { Link } from 'react-scroll';
 import logo from '../../img/Logo.svg';
 import basket from '../../img/Basket.svg';
 import { navlinks, SCROLL_DURATION, SCROLL_OFFSET } from '../../constants';
+import { useTranslation } from 'react-i18next';
 
 
-function HeaderView({ isMenuOpen, cartCounter, menuIconClickHandler, isStickyHeader, linkClickHandler }) {
+function HeaderView({ isMenuOpen, cartCounter, menuIconClickHandler, stickyHeader, linkClickHandler }) {
+    const { t } = useTranslation();
     return (
-        <header className={isStickyHeader ? 'header sticky' : 'header'}>
+        <header className={stickyHeader ? 'header sticky' : 'header'}>
             <div className='header__container'>
                 <Link
                     to={'main'}
@@ -33,7 +35,7 @@ function HeaderView({ isMenuOpen, cartCounter, menuIconClickHandler, isStickyHea
                                 duration={SCROLL_DURATION}
                                 onClick={linkClickHandler}
                                 className='menu__link navlink'
-                            >{navlink.name}</Link>)
+                            >{t(navlink.name)}</Link>)
                             )}
                         </ul>
                     </nav>

@@ -1,31 +1,24 @@
 import * as React from 'react';
 import { useState, useContext } from 'react';
 import CardItemView from './CardItemView';
-import { CardsContext } from '../../components/CardsProvider/CardsProvider';
+import { CardsContext } from '../CardsProvider/CardsProvider';
 
 function CardItem({ card, title, price, text, src, alt, tags, id, makeActive, activeCard, onDragHandler }) {
-    const [cardItem, setCardItem] = useState({
-        inputValue: 1,
-        errored: false
-    });
+
+    const [inputValue, setInputValue] = useState(1);
+    const [error, setError] = useState(false);
 
     const { increaseCartCounter, deleteTag } = useContext(CardsContext);
 
     const cardInputHandler = (e) => {
-        setCardItem({
-            ...cardItem,
-            inputValue: e.target.value
-        });
+        setInputValue(e.target.value);
     };
 
     const addToCart = () => {
-        if (+cardItem.inputValue > 0 && Number.isInteger(+cardItem.inputValue)) {
-            increaseCartCounter(cardItem.inputValue);
+        if (+inputValue > 0 && Number.isInteger(+inputValue)) {
+            increaseCartCounter(inputValue);
         } else {
-            setCardItem({
-                ...cardItem,
-                inputValue: 1
-            });
+            setInputValue(1);
         };
     };
 
@@ -33,14 +26,7 @@ function CardItem({ card, title, price, text, src, alt, tags, id, makeActive, ac
         console.log('img was updated succesfully!');
     };
 
-    const onErrorHandler = () => {
-        if (!cardItem.errored) {
-            setCardItem({
-                ...cardItem,
-                errored: true
-            });
-        };
-    };
+    const onErrorHandler = () => setError(true);
 
     return (
         <CardItemView
@@ -53,7 +39,7 @@ function CardItem({ card, title, price, text, src, alt, tags, id, makeActive, ac
             tags={tags}
             deleteTag={deleteTag}
             id={id}
-            cardInputValue={cardItem.inputValue}
+            inputValue={inputValue}
             cardInputHandler={cardInputHandler}
             addToCart={addToCart}
             makeActive={makeActive}
@@ -61,7 +47,7 @@ function CardItem({ card, title, price, text, src, alt, tags, id, makeActive, ac
             onDragHandler={onDragHandler}
             onLoadHandler={onLoadHandler}
             onErrorHandler={onErrorHandler}
-            errored={cardItem.errored}
+            error={error}
         />);
 };
 

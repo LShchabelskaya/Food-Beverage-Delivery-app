@@ -3,9 +3,11 @@ import './Faq.css';
 import faq_photo_primary from '../../img/Section_5_img.svg';
 import faq_photo_decor from '../../img/Section_5_img_decor.svg';
 import CommonBtn from '../CommonBtn/CommonBtn';
+import { useTranslation } from 'react-i18next';
 
 
 function Faq() {
+    const { t } = useTranslation();
     return (
         <section className='faq'>
             <div className='faq__container'>
@@ -14,11 +16,9 @@ function Faq() {
                     <img className='faq__photo__decoration' src={faq_photo_decor} alt='FAQ decoration' />
                 </div>
                 <div className='faq__content'>
-                    <h2 className='faq__title title'>Order online with our simple checkout.</h2>
-                    <p className='faq__text'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
-                    <CommonBtn text='See our FAQ' />
+                    <h2 className='faq__title title'>{t('faq.title')}</h2>
+                    <p className='faq__text'>{t('faq.text')}</p>
+                    <CommonBtn text='faq.button' />
                 </div>
             </div>
         </section>

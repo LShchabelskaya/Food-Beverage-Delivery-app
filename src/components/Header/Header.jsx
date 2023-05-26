@@ -4,7 +4,7 @@ import HeaderView from './HeaderView';
 import { MOBILE_WIDTH } from '../../constants';
 import { CardsContext } from '../../components/CardsProvider/CardsProvider';
 
-function Header({ isStickyHeader }) {
+function Header({ stickyHeader }) {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const { cartCounter } = useContext(CardsContext);
 
@@ -27,7 +27,7 @@ function Header({ isStickyHeader }) {
             isMenuOpen={isMenuOpen}
             cartCounter={cartCounter}
             menuIconClickHandler={menuIconClickHandler}
-            isStickyHeader={isStickyHeader}
+            stickyHeader={stickyHeader}
             linkClickHandler={linkClickHandler}
         />
     );

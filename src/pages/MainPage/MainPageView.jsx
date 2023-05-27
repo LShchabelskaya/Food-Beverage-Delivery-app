@@ -10,7 +10,7 @@ import Faq from '../../components/Faq/Faq';
 import Call from '../../components/Call/Call';
 import OrderNow from '../../components/OrderNow/OrderNow';
 import Footer from '../../components/Footer/Footer';
-import Team from '../../components/Team/Team';
+import TeamList from '../../components/TeamList/TeamList';
 
 function MainPageView({ navigateToMenu, infoLineRef, stickyHeader }) {
     return (
@@ -24,7 +24,7 @@ function MainPageView({ navigateToMenu, infoLineRef, stickyHeader }) {
                 <FoodMenu navigateToMenu={navigateToMenu} />
                 <Faq />
                 <Call />
-                <Team />
+                <TeamList />
                 <OrderNow />
             </main>
             <Footer />

@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import TeamListView from './TeamListView';
-import { getRandomIdsArr } from '../../helpers.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchData } from '../../api/apiHelper';
 
 function TeamList() {
-    const [teamList, setTeamList] = useState([]);
+    const { teamData } = useSelector((state) => state.team);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${getRandomIdsArr(1, 826)}`)
-        .then(response => response.json())
-        .then(data => setTeamList(data))
-    }, []);
+        fetchData(dispatch);
+    }, [dispatch]);
 
-    return <TeamListView teamList={teamList} />
+    return <TeamListView teamList={teamData} />
 };
 
 export default TeamList;

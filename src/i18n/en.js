@@ -96,7 +96,8 @@ export default {
     },
 
     team: {
-        title: 'Our team'
+        title: 'Our team',
+        button: 'See more'
     },
 
     order: {

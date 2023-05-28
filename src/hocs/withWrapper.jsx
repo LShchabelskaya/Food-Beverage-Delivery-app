@@ -1,6 +1,6 @@
 import React from "react";
 
-export const WithWrapper = (Component) => {
+export const withWrapper = (Component) => {
     return class extends React.Component {
 
         componentDidMount() {

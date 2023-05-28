@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './PopupView.css';
 import CommonBtn from '../CommonBtn/CommonBtn';
-import { WithWrapper } from '../HOC/WithWrapper';
+import { withWrapper } from '../../hocs/withWrapper';
 import { useTranslation } from 'react-i18next';
 
 function PopupView({ operatePopup, navigateToMenu }) {
@@ -20,4 +20,4 @@ function PopupView({ operatePopup, navigateToMenu }) {
     );
 };
 
-export const WithWrapperPopup = WithWrapper(PopupView);
+export const WithWrapperPopup = withWrapper(PopupView);

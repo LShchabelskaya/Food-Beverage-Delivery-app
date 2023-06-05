@@ -5,7 +5,7 @@ import CommonBtn from '../CommonBtn/CommonBtn';
 import Loader from '../Loader/Loader';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchData } from '../../api/apiHelper';
+import { fetchData } from '../../redux/teamReducer';
 
 function TeamListView({ teamList }) {
     const { t } = useTranslation();
@@ -27,9 +27,9 @@ function TeamListView({ teamList }) {
                         />
                     ))}
                 </div>
-                {isLoading ? <Loader /> : null}
+                {isLoading ? <Loader /> : null   /* due to the quick response from the server, the loader is shown very quickly */}     
                 <div className='team__btn-wrapper'>
-                    <CommonBtn text='team.button' onClick={() => fetchData(dispatch)} />
+                    <CommonBtn text='team.button' onClick={() => dispatch(fetchData())} />
                 </div>
             </div>
         </section>

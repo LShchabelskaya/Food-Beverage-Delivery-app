@@ -1,25 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getRandomIdsArr } from '../helpers';
+
+export const fetchData = createAsyncThunk('team/fetchData', async () => {
+    const response = await fetch(`https://rickandmortyapi.com/api/character/${getRandomIdsArr(1, 826)}`);
+    return response.json();
+});
 
 export const teamSlice = createSlice({
     name: 'team',
 
     initialState: {
         isLoading: false,
-        teamData: []
+        teamData: [],
+        error: ''
     },
 
-    reducers: {
-        setData: (state, action) => {
-            state.teamData = action.payload;
-            state.isLoading = false;
-        },
+    reducers: {},
 
-        setLoading: (state) => {
-            state.isLoading = true;
-        }
-    }
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchData.pending, (state) => {
+                state.isLoading = true;
+                state.error = undefined;
+            })
+            .addCase(fetchData.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.teamData = action.payload;
+            })
+            .addCase(fetchData.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
+    },
 });
-
-export const { setData, setLoading } = teamSlice.actions;
 
 export default teamSlice.reducer;

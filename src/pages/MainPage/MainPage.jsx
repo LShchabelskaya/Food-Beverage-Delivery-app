@@ -9,48 +9,30 @@ function MainPage() {
     const navigate = useNavigate();
 
     const [stickyHeader, setStickyHeader] = useState(false);
-    const [scrollListenerActive, setScrollListenerActive] = useState(false);
 
     const navigateToMenu = () => {
         navigate('/menu');
     };
 
     const stickHeader = useCallback(() => {
-        const scrollPosition = window.scrollY;
-        if (!infoLineRef.current) {
+        if (!infoLineRef.current || stickyHeader) {
             return;
         };
-        setStickyHeader(scrollPosition >= infoLineRef.current.offsetHeight);
-    }, []);
+        setStickyHeader(true);
+    }, [stickyHeader]);
 
     const scrollListener = useCallback(() => {
-        window.addEventListener('scroll', stickHeader);
-    }, [stickHeader]);
-
-    const setScrollListener = useCallback(() => {
-        if (window.innerWidth < MOBILE_WIDTH && !scrollListenerActive) {
-            setScrollListenerActive(true);
-            scrollListener();
-        } else if (window.innerWidth > MOBILE_WIDTH && scrollListenerActive) {
-            setScrollListenerActive(false);
-            window.removeEventListener('scroll', stickHeader);
-        };
-    }, [scrollListener, stickHeader, scrollListenerActive]);
-
-    const resizeListener = useCallback(() => {
-        window.addEventListener('resize', setScrollListener);
-    }, [setScrollListener]);
+        const scrollPosition = window.scrollY;
+        if (window.innerWidth < MOBILE_WIDTH && scrollPosition >= infoLineRef.current.offsetHeight) {
+            stickHeader();
+        } else if (stickyHeader) {
+            setStickyHeader(false);
+        }
+    }, [stickHeader, stickyHeader]);
 
     useEffect(() => {
-        if (window.innerWidth < MOBILE_WIDTH) {
-            scrollListener();
-        };
-        resizeListener();
-        return () => {
-            window.removeEventListener('scroll', stickHeader);
-            window.removeEventListener('resize', setScrollListener);
-        };
-    }, [resizeListener, scrollListener, stickHeader, setScrollListener]);
+        window.addEventListener('scroll', scrollListener)
+    }, [scrollListener]);
 
     return (
         <MainPageView
